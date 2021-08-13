@@ -45,15 +45,17 @@ $allVisitcards = $visitcards->fetch_all();
 
 </head>
 
-<body>
-<header>    <h1> Visit.io 2 PHP  - <a href="index.html" target="_blank"> Visit.io 2 html </a> </h1>   </header>
+<body id="homepage">
+<header>   
+ <h1> Visit.io 2 PHP  - <a href="index.html" target="_blank"> Visit.io 2 html </a> </h1>  
+</header>
 <nav></nav>
 
 	<div class="main homepage row">
 		<?php foreach ($allVisitcards as $visitcard) { ?>
 
-			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-			    <div id="visitio">
+			<div class="col-xs-12 col-sm-4">
+			    <div class="visitio">
 			        <div class="photo_group">
 			            <div class="company_photo">
 			            	<a href="visitcard.php?id=<?php echo $visitcard['id']; ?>" target="_blank">
@@ -95,19 +97,19 @@ $allVisitcards = $visitcards->fetch_all();
 			            </div>
 
 			            <div class="contacts">                
-			                <button class="social_controls" onclick="toggle_contacts"> <i class="fas fa-chevron-circle-right "></i> <i class="fas fa-chevron-circle-down"></i> </button>
-			                <button class="social_button"> <i class="fab fa-linkedin"></i> <a href="<?php echo $visitcard['linkedin']; ?>" target="_blank"> linkedin.com/me</a></button>
-			                <button class="social_button"> <i class="fab fa-dribbble"></i> <a href="<?php echo $visitcard['dribble']; ?>" target="_blank">dribble.com/me</a></button>
-			                <button class="social_button"> <i class="fab fa-twitter"></i> <a href="<?php echo $visitcard['twitter']; ?>" target="_blank">twitter.com/me</a></button>
-			                <button class="social_button"> <i class="fab fa-github"></i> <a href="<?php echo $visitcard['github']; ?>" target="_blank">github.com/me</a></button>
-			                <button class="social_button"> <i class="fab fa-slack"></i> <a href="<?php echo $visitcard['slack']; ?>" target="_blank">slack.com/me</a></button>
-			                <button class="social_button"> <i class="fab fa-stack-overflow"></i> <a href="<?php echo $visitcard['stackoverflow']; ?>" target="_blank"> stackoverflow.com/me </a></button>
-			                <button class="social_button"> <i class="fas fa-envelope"></i> <a href="mailto:<?php echo $visitcard['email']; ?>" target="_blank">esai@company.com</a> </button>
+			                <button class="social_controls"> <i class="fas fa-chevron-circle-right "></i> <i class="fas fa-chevron-circle-down"></i> </button>
+			                <button class="social_button linkedin"> <i class="fab fa-linkedin"></i> <a href="<?php echo $visitcard['linkedin']; ?>" target="_blank"> linkedin.com/me</a></button>
+			                <button class="social_button dribble"> <i class="fab fa-dribbble"></i> <a href="<?php echo $visitcard['dribble']; ?>" target="_blank">dribble.com/me</a></button>
+			                <button class="social_button twitter"> <i class="fab fa-twitter"></i> <a href="<?php echo $visitcard['twitter']; ?>" target="_blank">twitter.com/me</a></button>
+			                <button class="social_button github"> <i class="fab fa-github"></i> <a href="<?php echo $visitcard['github']; ?>" target="_blank">github.com/me</a></button>
+			                <button class="social_button slack"> <i class="fab fa-slack"></i> <a href="<?php echo $visitcard['slack']; ?>" target="_blank">slack.com/me</a></button>
+			                <button class="social_button stack_overflow"> <i class="fab fa-stack-overflow"></i> <a href="<?php echo $visitcard['stackoverflow']; ?>" target="_blank"> stackoverflow.com/me </a></button>
+			                <button class="social_button email"> <i class="fas fa-envelope"></i> <a href="mailto:<?php echo $visitcard['email']; ?>" target="_blank"><?php echo $visitcard['email'] ?> </a> </button>
 			           
 			                <div class="social_link_display"> 
 			                    <p class="target"></p>
-			                    <input type="text" id="input_social_link" name="input_social_link" placeholder="" > 
-			                    <button class="btn" id="save_social_link" name="save_social_link" > save </button>
+			                    <input type="text" class="input_social_link" name="input_social_link" placeholder="" > 
+			                    <button class="btn save_social_link" name="save_social_link" > save </button>
 			                    <p class="confirmation"> link saved </p>
 			                </div>
 			                <ul class="contacts_listing">
@@ -152,8 +154,7 @@ $allVisitcards = $visitcards->fetch_all();
 
   <!-- content end... -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <script src="./assets/js/wp-polyfill.min.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>   
     <script src="./assets/js/scripts.js"></script>
 
 </body>

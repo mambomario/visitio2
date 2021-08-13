@@ -49,11 +49,11 @@ $thisVisitcard = $visitcard->fetch_all($_GET['id']);
 <header>    <h1> Visit.io 2 PHP  - <a href="index.html" target="_blank"> Visit.io 2 html </a> </h1>   </header>
 <nav></nav>
 
-	<div class="main homepage row center">
-		<?php foreach ($thisVisitcard as $visitcard_item) { ?>
 
-			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-			    <div id="visitio">
+	
+		<div class="single_visitcard">
+		<?php foreach ($thisVisitcard as $visitcard_item) { ?>			
+			    <div class="visitio">
 			        <div class="photo_group">
 			            <div class="company_photo">
 			            	<a href="<?php echo $visitcard_item['id']; ?>" target="_blank">
@@ -127,18 +127,43 @@ $thisVisitcard = $visitcard->fetch_all($_GET['id']);
 			            </div>
 			        </div>
 
-			       <div class="visitcard_sharing row">
-			       		<div class="col-xs-12 col-sm-6">
-			       			<!-- <a href="sms:?body=This is my visitcard! <?php current_url(); ?> "> SMS share</a>	 -->
+        <div class="share">
 
-			       			<button class="btn sms_share"><a href="sms:/123456/&body= Check my visitio: <?php current_url(); ?> ">SMS share</a></button>
-			       		</div>
-			       		<div class="col-xs-12 col-sm-6">
-			       			<!-- <button class="btn wa_share"><a href="sms:/123456/&body= Check my visitio: <?php current_url(); ?> ">WA share</a></button>			       			 -->
-			       			<a href="https://web.whatsapp.com/send?text=Check my visitio: <?php current_url(); ?>" data-action="share/whatsapp/share">WA share</a>
-			       		</div>
-			       	
-			       </div>
+           
+            <button class="send_card"> Send card </button>
+            
+
+                    <button class="sms sharebutton">   
+                        <a href="sms://&body= See my visitio:"> 
+                            <img src="./assets/images/icons/sms.png" alt="">
+                        </a>
+                    </button>
+          
+                    <button class="email sharebutton">
+                        <a href="mailto:?&subjet=Visitio card&body=See my visitio:">                         
+                            <img src="./assets/images/icons/email.jpg" alt=""> 
+                        </a>
+                    </button>
+              
+                    <button class="whatsapp sharebutton">
+                        <a href="https://web.whatsapp.com/send?text=Check my visitio:" target="_blank"> 
+                            <img src="./assets/images/icons/whatsapp.png" alt="">
+                        </a>
+                    </button>
+             
+                    <button class="qrcode sharebutton" > 
+                        <!-- <a id="qrcode" href=""> -->
+                            <img  src="./assets/images/icons/qrcode.jpg" alt="">
+                        <!-- </a>  -->
+                    </button>
+
+                    <div class="qr_region">
+                       <img src="./assets/images/qrs/qr.png" alt=""> 
+                    </div>
+  
+        </div>
+
+
 			        <div class="map">
 			            
 			            <iframe src="<?php echo $visitcard_item['map']; ?>"  width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
@@ -149,13 +174,13 @@ $thisVisitcard = $visitcard->fetch_all($_GET['id']);
 			    
 
 
-			</div>			
-					
-
-
 		<?php } ?>
 		
-	</div>
+	</div>		
+
+
+
+
   
 
 
@@ -164,8 +189,7 @@ $thisVisitcard = $visitcard->fetch_all($_GET['id']);
 
   <!-- content end... -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <script src="./assets/js/wp-polyfill.min.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>   
     <script src="./assets/js/scripts.js"></script>
 
 </body>
