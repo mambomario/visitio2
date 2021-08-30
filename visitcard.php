@@ -51,7 +51,7 @@ $thisVisitcard = $visitcard->fetch_all($_GET['id']);
 
 
 	
-		<div class="single_visitcard">
+		<div id="single_visitcard">
 		<?php foreach ($thisVisitcard as $visitcard_item) { ?>			
 			    <div class="visitio">
 			        <div class="photo_group">
@@ -95,19 +95,19 @@ $thisVisitcard = $visitcard->fetch_all($_GET['id']);
 			            </div>
 
 			            <div class="contacts">                
-			                <button class="social_controls" onclick="toggle_contacts"> <i class="fas fa-chevron-circle-right "></i> <i class="fas fa-chevron-circle-down"></i> </button>
-			                <button class="social_button"> <i class="fab fa-linkedin"></i> <a href="<?php echo $visitcard_item['linkedin']; ?>" target="_blank"> linkedin.com/me</a></button>
-			                <button class="social_button"> <i class="fab fa-dribbble"></i> <a href="<?php echo $visitcard_item['dribble']; ?>" target="_blank">dribble.com/me</a></button>
-			                <button class="social_button"> <i class="fab fa-twitter"></i> <a href="<?php echo $visitcard_item['twitter']; ?>" target="_blank">twitter.com/me</a></button>
-			                <button class="social_button"> <i class="fab fa-github"></i> <a href="<?php echo $visitcard_item['github']; ?>" target="_blank">github.com/me</a></button>
-			                <button class="social_button"> <i class="fab fa-slack"></i> <a href="<?php echo $visitcard_item['slack']; ?>" target="_blank">slack.com/me</a></button>
-			                <button class="social_button"> <i class="fab fa-stack-overflow"></i> <a href="<?php echo $visitcard_item['stackoverflow']; ?>" target="_blank"> stackoverflow.com/me </a></button>
-			                <button class="social_button"> <i class="fas fa-envelope"></i> <a href="mailto:<?php echo $visitcard_item['email']; ?>" target="_blank">esai@company.com</a> </button>
+			                <button class="social_controls"> <i class="fas fa-chevron-circle-right "></i> <i class="fas fa-chevron-circle-down"></i> </button>
+			                <button class="social_button linkedin"> <i class="fab fa-linkedin"></i> <a href="<?php echo $visitcard_item['linkedin']; ?>" target="_blank"> linkedin.com/me</a></button>
+			                <button class="social_button dribble"> <i class="fab fa-dribbble"></i> <a href="<?php echo $visitcard_item['dribble']; ?>" target="_blank">dribble.com/me</a></button>
+			                <button class="social_button twitter"> <i class="fab fa-twitter"></i> <a href="<?php echo $visitcard_item['twitter']; ?>" target="_blank">twitter.com/me</a></button>
+			                <button class="social_button github"> <i class="fab fa-github"></i> <a href="<?php echo $visitcard_item['github']; ?>" target="_blank">github.com/me</a></button>
+			                <button class="social_button slack"> <i class="fab fa-slack"></i> <a href="<?php echo $visitcard_item['slack']; ?>" target="_blank">slack.com/me</a></button>
+			                <button class="social_button stack_overflow"> <i class="fab fa-stack-overflow"></i> <a href="<?php echo $visitcard_item['stackoverflow']; ?>" target="_blank"> stackoverflow.com/me </a></button>
+			                <button class="social_button email"> <i class="fas fa-envelope"></i> <a href="mailto:<?php echo $visitcard_item['email']; ?>" target="_blank">Send an email</a> </button>
 			           
 			                <div class="social_link_display"> 
 			                    <p class="target"></p>
-			                    <input type="text" id="input_social_link" name="input_social_link" placeholder="" > 
-			                    <button class="btn" id="save_social_link" name="save_social_link" > save </button>
+			                    <input type="text" class="input_social_link" name="input_social_link" placeholder="" > 
+			                    <button class="btn save_social_link" name="save_social_link" > save </button>
 			                    <p class="confirmation"> link saved </p>
 			                </div>
 			                <ul class="contacts_listing">
@@ -119,7 +119,7 @@ $thisVisitcard = $visitcard->fetch_all($_GET['id']);
 			                    <li class="social"><span class="definition">Tel:</span> <span class="content"><?php echo $visitcard_item['tel']; ?></span></li>
 			                    <li class="social"><span class="definition">Mobile:</span> <span class="content"><?php echo $visitcard_item['mob']; ?></span></li>
 			                    <br />
-			                    <li class="social"><span class="definition">E-mail:</span> <span class="content">  <a href="mailto:<?php echo $visitcard_item['email']; ?>">email me</a>  </span></li> 
+			                    <li class="social email"><span class="definition">E-mail:</span> <span class="content">  <a href="mailto:<?php echo $visitcard_item['email']; ?>"> <?php echo $visitcard_item['email']; ?> </a>  </span></li> 
 
 
 
@@ -140,7 +140,7 @@ $thisVisitcard = $visitcard->fetch_all($_GET['id']);
                     </button>
           
                     <button class="email sharebutton">
-                        <a href="mailto:?&subjet=Visitio card&body=See my visitio:">                         
+                        <a href="mailto:?&subject=Visitio card&Body=See my Visitio:">                         
                             <img src="./assets/images/icons/email.jpg" alt=""> 
                         </a>
                     </button>
@@ -153,12 +153,16 @@ $thisVisitcard = $visitcard->fetch_all($_GET['id']);
              
                     <button class="qrcode sharebutton" > 
                         <!-- <a id="qrcode" href=""> -->
-                            <img  src="./assets/images/icons/qrcode.jpg" alt="">
+                        	
+                            	<img  src="./assets/images/icons/qrcode.jpg" alt="">
+                            
                         <!-- </a>  -->
                     </button>
 
                     <div class="qr_region">
-                       <img src="./assets/images/qrs/qr.png" alt=""> 
+                    	<a href="visitcard_r.php?id=<?php echo $visitcard_item['id']; ?>"  target="_blank">	
+                       		<img src="./assets/images/qrs/qr.png" alt=""> 
+                       	</a>
                     </div>
   
         </div>
@@ -166,7 +170,7 @@ $thisVisitcard = $visitcard->fetch_all($_GET['id']);
 
 			        <div class="map">
 			            
-			            <iframe src="<?php echo $visitcard_item['map']; ?>"  width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+			           <?php echo $visitcard_item['map']; ?>
 
 			        </div>
 			        
