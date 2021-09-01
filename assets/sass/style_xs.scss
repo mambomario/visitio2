@@ -1,0 +1,284 @@
+/* Mari's theme */
+@import "variables.scss";
+@import "mixins.scss";
+
+
+
+
+
+body {
+	height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background: #70bg32;
+    background-repeat:no-repeat;
+
+	min-width: 320px;
+	font-family: 'Poppins', sans-serif;
+	background: #50A3A2;
+	background: -webkit-linear-gradient(top left, #50A3A2, #78CC6F);
+	background: -moz-linear-gradient(top left, #50A3A2, #78CC6F);
+	background: linear-gradient(to bottom right, #50A3A2, #78CC6F);
+
+}
+
+.homepage {
+	margin: 0 auto;
+	.row {
+		.map, header h1 {
+			display: none;
+		}
+
+		.col {
+			height: 530px;
+			overflow: hidden;
+		}
+	}
+
+}
+
+.blackfont {
+	color: $black;
+}
+
+
+h1 {
+	text-align: center;
+	color: $white;
+	padding-top: 2rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 1rem;
+}
+.visitio {
+	position: relative;
+	margin: 2rem auto;
+	padding: 0rem;
+	width: 80%;
+	min-width: 300px;
+	max-width: 400px;
+	background: $white;
+	text-align: center;
+	overflow: hidden;
+	border-radius: 0.5rem;
+	overflow: hidden;
+
+	h1 {
+		padding-bottom: 0rem;
+	}
+
+	.photo_group, .contact_group {
+		position: relative;
+
+	}
+
+
+	h1.name {
+		color: $primary_text_color;
+		font-size: 1.6rem;
+		padding-top: 1.6rem;;	
+	}
+	.company_photo {
+		img {
+			width: 100%;
+			height: auto;
+		}
+		
+	}
+	.profile_photo, .company_photo_bottom {
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		height: auto;
+		margin: 0 auto;
+		text-align: center;
+	}
+	img.company_photo_bottom {
+	width: 100%;
+	height: auto;
+	}
+	img.profile_photo {
+			margin: 0 auto;
+			width: 30%;
+			border-radius: 50%;
+			border: 4px solid $white;
+	}
+
+	.professions {
+		width: 50%;
+		margin: 0 auto 1rem auto;
+		span { 
+				color: $lgreen;
+		}
+						
+	}
+
+	.contacts {
+		text-align: center;
+		padding: 5px 0;
+		button {
+			border: none;
+			background: $white;
+			width: 1.6rem;
+		}
+
+		a {
+			color: $primary_text_color;
+		}
+
+		.active {
+			color: $lgreen;
+		}
+
+		.social_button {
+
+			
+
+			padding: 0.2rem;
+			a {
+				display: none;
+			}
+
+		}
+
+		i {
+			font-size: 1.2rem;
+			&.fa-chevron-circle-down {
+				display: none;
+			}
+			&:hover, &.fa-chevron-circle-right, &.fa-chevron-circle-down {
+				color: $lgreen;
+
+			}
+
+			&.fa-chevron-circle-right, &.fa-chevron-circle-down {
+				animation: pulse 2s infinite ease-out;
+			}
+
+			@keyframes pulse {
+			  0% {
+			    transform: scale(1);
+			  }
+			  30% {
+			    transform: scale(1.4);
+			  }
+			  70% {
+			    transform: scale(1.4);
+			  }
+			  100% {
+			    transform: scale(1);
+			  }
+			}
+		}
+
+		ul.contacts_listing {
+			display: none;
+			margin: 1rem auto;
+			li.social {
+				padding: 0;
+				.definition	{
+					color: $lgreen;
+				}
+				list-style: none;
+			}
+		}
+
+		.social_link_display {
+			input {
+				display: none;
+			}
+
+			.input_social_link {
+				margin-bottom: 1rem;
+				top: -7px;
+				position: relative;
+			}
+
+			button {
+				&.save_social_link {
+					padding: 0.2rem 0.5rem;
+					background: $lgreen;
+					color: $white;
+					width: auto;
+					margin-bottom: 1rem;
+					display: none;					
+				}
+
+				&.btn {
+					display: none;
+				}
+			}
+
+			p.confirmation {
+				display: none;
+				/*text-transform: uppercase;*/
+				color: $lgreen;
+			}
+
+		}
+
+	}
+
+	.map {
+		margin-top: 2rem;
+		.place-card {
+			display: none !important;
+		}
+	}
+
+}
+
+
+.share, .save {
+	padding: 0rem;
+	
+	button	{
+		border: none;
+		display: inline;
+		background: $white;
+		width: 60px;
+		img {
+			min-width: 50px;
+			max-width: 100%;
+			height: auto;
+		}
+
+		&.send_card, &.save_to_contacts, &.save_to_app {
+			width: auto;
+			display: block;
+			margin: 10px auto 30px auto;
+			background-color: $lgreen;
+			color: $white;
+			border-radius: 15px;
+			border: $lgreen solid 1px;
+			padding: 2px 10px;
+		}
+		&.sharebutton {
+			display: none;
+		}
+
+		&.save_to_contacts, &.save_to_app {
+			min-width: 180px;
+			font-size: 0.9rem;
+			
+		}
+
+
+
+	}
+
+	.qr_region {
+		display: none;
+		margin-top: 20px;
+	}
+
+	.vcficon {
+		width: 100px;
+		display: none;
+	}
+
+}
